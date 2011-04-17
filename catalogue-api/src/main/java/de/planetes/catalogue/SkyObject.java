@@ -1,5 +1,7 @@
 package de.planetes.catalogue;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Created by IntelliJ IDEA.
  * User: kamann
@@ -11,6 +13,7 @@ public interface SkyObject {
 
     public String getName();
 
+    @NotNull
     public IPosition getPosition();
 
     public SkyObjectType getType();
