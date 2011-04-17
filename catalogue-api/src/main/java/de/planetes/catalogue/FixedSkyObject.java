@@ -7,7 +7,7 @@ package de.planetes.catalogue;
  * Time: 10:12
  * To change this template use File | Settings | File Templates.
  */
-public interface FixedSkyObject extends SkyObject {
+public interface FixedSkyObject extends ISkyObject {
 
     public Constellation getConstellation();
 

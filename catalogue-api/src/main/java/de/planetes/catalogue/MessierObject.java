@@ -7,7 +7,7 @@ package de.planetes.catalogue;
  * Time: 10:10
  * To change this template use File | Settings | File Templates.
  */
-public interface MessierObject extends SkyObject {
+public interface MessierObject extends ISkyObject {
 
     public String getDescription();
 

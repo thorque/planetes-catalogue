@@ -7,7 +7,7 @@ package de.planetes.catalogue;
  * Time: 10:06
  * To change this template use File | Settings | File Templates.
  */
-public interface SkyObjectType {
+public interface ISkyObjectType {
 
     public String getName();
 
