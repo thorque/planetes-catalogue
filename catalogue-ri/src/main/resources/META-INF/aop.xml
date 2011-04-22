@@ -1,0 +1,14 @@
+<!DOCTYPE aspectj PUBLIC    
+  "-//AspectJ//DTD//EN"    "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+
+<aspectj>
+	<weaver
+		options="-showWeaveInfo
+              -XmessageHandlerClass:org.springframework.aop.aspectj.AspectJWeaverMessageHandler">
+		<include within="de.planetes.catalogue.ri..*" />
+	</weaver>
+	<aspects>
+		<include
+			within="org.springframework.beans.factory.aspectj.AnnotationBeanConfigurerAspect" />
+	</aspects>
+</aspectj>
