@@ -50,7 +50,7 @@ public class Declination implements IDeclination {
 		ValidatorHelper helper = new ValidatorHelper();
 		helper.setValidator(d.validator);
 		helper.doValidate(d);
-		if (!helper.hasViolations()) {
+		if (helper.hasViolations()) {
 			throw new WrongPositionDataException(helper.toString());
 		}
         return d;
