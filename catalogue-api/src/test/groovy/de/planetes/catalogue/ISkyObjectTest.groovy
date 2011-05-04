@@ -25,7 +25,7 @@ class ISkyObjectTest {
 	private ISkyObject skyObject
 	private IPosition position
 	private ISkyObjectType type
-	
+
 	@Autowired
 	Validator validator
 
@@ -34,26 +34,15 @@ class ISkyObjectTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		position = [] as IPosition
-		type = [] as ISkyObjectType
+		position = []as IPosition
+		type = []as ISkyObjectType
 		skyObject = [getPosition: {position}, getType: {type}] as ISkyObject
 	}
-	
+
 	@Test
 	final void "test validator works fine with position set to null"(){
 		position = null
-		
-		def violations = validator.validate(skyObject)
-		Assert.assertEquals 1, violations.size()
-		violations.each {
-			Assert.assertEquals "{javax.validation.constraints.NotNull.message}", it.messageTemplate
-		}
-	}
-	
-	@Test
-	final void "test validator works fine with skyovjectype set to null"(){
-		type = null
-		
+
 		def violations = validator.validate(skyObject)
 		Assert.assertEquals 1, violations.size()
 		violations.each {
@@ -61,4 +50,14 @@ class ISkyObjectTest {
 		}
 	}
 
+	@Test
+	final void "test validator works fine with skyobjectype set to null"(){
+		type = null
+
+		def violations = validator.validate(skyObject)
+		Assert.assertEquals 1, violations.size()
+		violations.each {
+			Assert.assertEquals "{javax.validation.constraints.NotNull.message}", it.messageTemplate
+		}
+	}
 }

@@ -1,23 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.planetes.catalogue</groupId>
-    <artifactId>catalogue</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
-    <modules>
-        <module>catalogue-api</module>
-        <module>catalogue-ri</module>
-    </modules>
+	<groupId>de.planetes.catalogue</groupId>
+	<artifactId>catalogue</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<modules>
+		<module>catalogue-api</module>
+		<module>catalogue-ri</module>
+	</modules>
 
-    <repositories>
-        <repository>
-            <id>JBoss Repository</id>
-            <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
-            <name>JBoss Repository</name>
-        </repository>
-    </repositories>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.gmaven</groupId>
+					<artifactId>gmaven-plugin</artifactId>
+					<version>1.3</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>testCompile</goal>
+							</goals>
+							<configuration>
+								<providerSelection>1.7</providerSelection>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.8.1</version>
+				<configuration>
+					<parallel>classes</parallel>
+					<threadCount>10</threadCount>					
+				</configuration>
+			</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>JBoss Repository</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+			<name>JBoss Repository</name>
+		</repository>
+	</repositories>
 </project>

@@ -31,6 +31,7 @@ class IConstellationTest {
 		constellation = [getName: {name}, getCode: {code}, getSkyObjects: {skyObjects}] as IConstellation
 	}
 
+
 	@Test
 	final void "test if the validator works fine with name set to null"(){
 		name = null
@@ -75,10 +76,12 @@ class IConstellationTest {
 		}
 	}
 
+
 	@Test
 	final void "test if the validator works fine with skyObjects set to null"(){
 		skyObjects = null
 
+		System.out.println(validator);
 		def violations = validator.validate(constellation)
 		Assert.assertEquals 1, violations.size()
 		violations.each {

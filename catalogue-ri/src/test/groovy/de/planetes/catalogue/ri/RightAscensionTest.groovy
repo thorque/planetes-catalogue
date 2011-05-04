@@ -12,7 +12,7 @@ import org.junit.runner.RunWith
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 
-import de.planetes.catalogue.IDeclination
+import de.planetes.catalogue.IRightAscension
 import de.planetes.catalogue.ri.exception.CatalogueValidationException
 
 /**
@@ -21,7 +21,7 @@ import de.planetes.catalogue.ri.exception.CatalogueValidationException
  */
 @RunWith(SpringJUnit4ClassRunner)
 @ContextConfiguration("/de/planetes/catalogue/ri/RITest-context.xml")
-class DeclinationTest {
+class RightAscensionTest {
 
 	/**
 	 * @throws java.lang.Exception
@@ -31,15 +31,15 @@ class DeclinationTest {
 	}
 
 	@Test(expected=CatalogueValidationException)
-	final void "test creation of a new Declination instance with invalid data"(){
-		CatalogueFactory.createDeclination(33, 22, 66)
+	final void "test factory method with wrong data"(){
+		IRightAscension ra = CatalogueFactory.createRightAscension(12, 22, 66)
 	}
 
 	@Test
-	final void "test creation of a new Declination instance with valid data"(){
-		IDeclination declination = CatalogueFactory.createDeclination(33, 22, 11.5d)
-		Assert.assertEquals 33, declination.degree
-		Assert.assertEquals 22, declination.minutes
-		Assert.assertEquals 11.5d, declination.seconds, 0
+	final void "test factory method with correct data"(){
+		IRightAscension ra = CatalogueFactory.createRightAscension(12, 22, 11.5d)
+		Assert.assertEquals 12, ra.hours
+		Assert.assertEquals 22, ra.minutes
+		Assert.assertEquals 11.5d, ra.seconds, 0
 	}
 }
