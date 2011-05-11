@@ -8,6 +8,8 @@ import org.springframework.beans.factory.BeanCreationException;
 import de.planetes.catalogue.IDeclination;
 import de.planetes.catalogue.IPosition;
 import de.planetes.catalogue.IRightAscension;
+import de.planetes.catalogue.ISkyObject;
+import de.planetes.catalogue.ISkyObjectType;
 import de.planetes.catalogue.ri.exception.CatalogueValidationException;
 
 /**
@@ -54,4 +56,30 @@ public class CatalogueFactory {
 		}
 		return null;
 	}
+
+	public static ISkyObjectType createSkyObjectType(String name, String code) {
+		try {
+			return new SkyObjectType(name, code);
+		} catch (BeanCreationException e) {
+			Throwable t = e.getRootCause();
+			if (t != null && t instanceof CatalogueValidationException) {
+				throw (CatalogueValidationException) e.getRootCause();
+			}
+		}
+		return null;
+	}
+
+	public static ISkyObject createSkyObject(String name, String description,
+			IPosition position, ISkyObjectType type) {
+		try {
+			return new SkyObject(name, description, position, type);
+		} catch (BeanCreationException e) {
+			Throwable t = e.getRootCause();
+			if (t != null && t instanceof CatalogueValidationException) {
+				throw (CatalogueValidationException) e.getRootCause();
+			}
+		}
+		return null;
+	}
+
 }
