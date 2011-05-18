@@ -23,6 +23,14 @@ public class Declination extends AbstractValidatedCatalogue implements
 	private int minutes;
 	private double seconds;
 
+	/**
+	 * Protected constructor. Please use {@link CatalogueFactory} to create a
+	 * new instance.
+	 * 
+	 * @param degree
+	 * @param minutes
+	 * @param seconds
+	 */
 	protected Declination(int degree, int minutes, double seconds) {
 		this.degree = degree;
 		this.minutes = minutes;

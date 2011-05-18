@@ -10,8 +10,16 @@ import de.planetes.catalogue.IPosition;
 import de.planetes.catalogue.IRightAscension;
 
 /**
- * @author kamann
- *
+ * Implementation of the {@link IPosition} interface. Newly created instances
+ * are JSR-303 validated. You can create a new instance with the
+ * {@link CatalogueFactory}:
+ * 
+ * <pre>
+ * 		<code>Iposition position = CatalogueFactory.createPosition(IRightAscension, IDeclination);</code>
+ * </pre>
+ * 
+ * @author Thorsten Kamann
+ * 
  */
 @Configurable
 public class Position extends AbstractValidatedCatalogue implements IPosition {
@@ -19,6 +27,9 @@ public class Position extends AbstractValidatedCatalogue implements IPosition {
 	private IDeclination declination;
 
 	/**
+	 * Protected constructor. Use {@link CatalogueFactory} to create a new
+	 * instance.
+	 * 
 	 * @param rightAscension
 	 * @param declination
 	 */

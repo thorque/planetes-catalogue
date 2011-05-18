@@ -11,6 +11,14 @@ import de.planetes.catalogue.ISkyObjectType;
  * RI of the interface {@link ISkyObjectType}. This class is describing the type
  * of a SkyObject, like planet, star, galaxy and so on.
  * 
+ * You can create a new instance of this class like this:
+ * 
+ * <pre>
+ * 		<code>ISkyObjectType type = CatalogueFactory.createSkyObjectType(String, String);</code>
+ * </pre>
+ * 
+ * All instances are JSR-303 validated
+ * 
  * @author Thorsten Kamann
  */
 @Configurable
@@ -20,9 +28,9 @@ public class SkyObjectType extends AbstractValidatedCatalogue implements
 	private String code;
 
 	/**
-	 * Constructor for this class. It's protected because only a factory should
-	 * create a new instance of this class. For the same reason no setter method
-	 * existing.
+	 * Constructor for this class. It's protected because only the
+	 * {@link CatalogueFactory} should create a new instance of this class. For
+	 * the same reason no setter method existing.
 	 * 
 	 * @param name
 	 * @param code

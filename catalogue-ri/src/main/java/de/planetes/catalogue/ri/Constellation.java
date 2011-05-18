@@ -12,8 +12,21 @@ import de.planetes.catalogue.IConstellation;
 import de.planetes.catalogue.IFixedSkyObject;
 
 /**
- * @author Thorsten Kamann
+ * Implementation of the {@link IConstellation} interface. A Constellation
+ * contains all {@link IFixedSkyObject}s. At now no informations about the
+ * bounds will be provided.
  * 
+ * A newly created instance is validated (JSR-303).
+ * 
+ * To create a new instance use following snippet:
+ * 
+ * <pre>
+ * 		<code>IConstellation constellation = CatalogueFactory.createConstellation(String, String, String,  List<IFixedSkyObject>)<code>
+ * 		<br>or<br>
+ * 		<code>IConstellation constellation = CatalogueFactory.createConstellation(String, String, String,  IFixedSkyObject...)</code>
+ * </pre>
+ * 
+ * @author Thorsten Kamann
  */
 @Configurable
 public class Constellation extends AbstractValidatedCatalogue implements
@@ -24,6 +37,9 @@ public class Constellation extends AbstractValidatedCatalogue implements
 	private List<IFixedSkyObject> skyObjects = new ArrayList<IFixedSkyObject>();
 
 	/**
+	 * Constructor for internal use only. Please use {@link CatalogueFactory} to
+	 * create a new instance of this class.
+	 * 
 	 * @param name
 	 * @param description
 	 * @param code

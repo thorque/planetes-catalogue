@@ -11,7 +11,13 @@ import de.planetes.catalogue.ISkyObjectType;
 /**
  * RI of the interface {@link ISkyObject}. A SkyObject describes every object
  * you can find at the sky. There are some specialized Interfaces for this
- * general class.
+ * general class. You can create a new instance like this:
+ * 
+ * <pre>
+ * 		<code>ISkyObject skyObject = CatalogueFactory.createSkyObject(String, String, IPosition, ISkyObjectType);</code>
+ * </pre>
+ * 
+ * All instances are JSR-303 validated.
  * 
  * @author Thorsten Kamann
  * 
@@ -27,8 +33,8 @@ public class SkyObject extends AbstractValidatedCatalogue implements ISkyObject 
 
 	/**
 	 * Constructor to create a new instance of a SkyObject. It's protected
-	 * because the creation should be done through a Factory. Therefore no
-	 * setter methods existing.
+	 * because the creation should be done through the {@link CatalogueFactory}.
+	 * Therefore no setter methods existing.
 	 * 
 	 * @param name
 	 * @param description
