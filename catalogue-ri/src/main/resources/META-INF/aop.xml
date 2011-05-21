@@ -10,5 +10,6 @@
 	<aspects>
 		<include
 			within="org.springframework.beans.factory.aspectj.AnnotationBeanConfigurerAspect" />
+		<include within=""/>
 	</aspects>
 </aspectj>
