@@ -71,6 +71,6 @@ public class Declination extends AbstractValidatedCatalogue implements
 	 */
 	@Override
 	public String toString() {
-		return degree + "¡ " + minutes + "' " + seconds + "\"";
+		return degree + "Â° " + minutes + "' " + seconds + "\"";
 	}
 }
