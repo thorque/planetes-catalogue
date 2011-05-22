@@ -71,6 +71,11 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	
+	<scm>
+		<connection>scm:git:git@github.com:thorque/planetes-catalogue.git</connection>
+		<tag>master</tag>
+	</scm>
 
 	<repositories>
 		<repository>
