@@ -89,8 +89,21 @@
 	
 	<scm>
 		<connection>scm:git:git@github.com:thorque/planetes-catalogue.git</connection>
+		<developerConnection>scm:git:git@github.com:thorque/planetes-catalogue.git</developerConnection>
 		<tag>master</tag>
 	</scm>
+	
+	<ciManagement>
+		<system>jenkins</system>
+		<url>http://server001.agilebackoffice.org/jenkins/</url>
+	</ciManagement>
+	
+	<issueManagement>
+		<system>jira</system>
+		<url>http://server001.agilebackoffice.org/jira/</url>
+	</issueManagement>
+	
+	
 
 	<repositories>
 		<repository>
