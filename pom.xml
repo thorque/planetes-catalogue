@@ -6,14 +6,14 @@
 	<artifactId>catalogue</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0.0-SNAPSHOT</version>
-	
+
 	<name>planetes-catalogue</name>
 	<description>
 		Simple web application to get data from star catalogues like the messier catalogue.
 	</description>
 	<url>https://github.com/thorque/planetes-catalogue</url>
 	<inceptionYear>2011</inceptionYear>
-	
+
 	<developers>
 		<developer>
 			<id>thorque</id>
@@ -21,7 +21,7 @@
 			<url>http://www.thorsten-kamann.de/</url>
 		</developer>
 	</developers>
-	
+
 	<modules>
 		<module>catalogue-api</module>
 		<module>catalogue-ri</module>
@@ -86,24 +86,24 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	
+
 	<scm>
 		<connection>scm:git:git@github.com:thorque/planetes-catalogue.git</connection>
 		<developerConnection>scm:git:git@github.com:thorque/planetes-catalogue.git</developerConnection>
 		<tag>master</tag>
 	</scm>
-	
+
 	<ciManagement>
 		<system>jenkins</system>
 		<url>http://server001.agilebackoffice.org/jenkins/</url>
 	</ciManagement>
-	
+
 	<issueManagement>
 		<system>jira</system>
 		<url>http://server001.agilebackoffice.org/jira/</url>
 	</issueManagement>
-	
-	
+
+
 
 	<repositories>
 		<repository>
@@ -113,15 +113,52 @@
 			<name>JBoss Repository</name>
 		</repository>
 	</repositories>
-	
+
 	<distributionManagement>
 		<snapshotRepository>
 			<id>agiba.snapshots</id>
 			<url>http://server001.agilebackoffice.org:8080/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
-		<repository>
-			<id>agiba.releases</id>
-			<url>http://server001.agilebackoffice.org:8080/nexus/content/repositories/releases/</url>
-		</repository>
 	</distributionManagement>
+
+	<profiles>
+		<profile>
+			<id>rc-build</id>
+			<properties>
+				<build-number>1</build-number>
+				<rc-build-version>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}-${parsedVersion.incrementalVersion}-b${build-number}</rc-build-version>
+				<includesList>de.planetes.catalogue:*</includesList>
+				<newVersion>${rc-build-version}</newVersion>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<version>1.5</version>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>versions-maven-plugin</artifactId>
+						<version>1.2</version>
+					</plugin>
+				</plugins>
+			</build>
+			<distributionManagement>
+				<repository>
+					<id>agiba.releases</id>
+					<url>http://server001.agilebackoffice.org:8080/nexus/content/repositories/rc-builds/</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+		<profile>
+			<id>release-build</id>
+			<distributionManagement>
+				<repository>
+					<id>agiba.releases</id>
+					<url>http://server001.agilebackoffice.org:8080/nexus/content/repositories/releases/</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
 </project>
