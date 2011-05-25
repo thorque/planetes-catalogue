@@ -14,39 +14,11 @@
 	<context:spring-configured />
 	<context:load-time-weaver
 		weaver-class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
-	<context:component-scan base-package="de.planetes.catalogue.ri" />
+	<context:component-scan base-package="de.planetes.catalogue.ri" >
+		<context:exclude-filter type="regex" expression=".*Service"/>
+	</context:component-scan>
 
 	<bean id="validator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
-
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		p:url="jdbc:hsqldb:file:testdb" p:driverClassName="org.hsqldb.jdbcDriver"
-		p:password="" p:username="sa" />
-		
-	<bean id="entityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-		p:dataSource-ref="dataSource" 
-		p:persistenceUnitName="planetes-catalogue">
-		<property name="jpaVendorAdapter">
-			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-				<property name="showSql" value="true" />
-				<property name="generateDdl" value="true" />
-				<property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect" />
-			</bean>
-		</property>
-		<property name="jpaPropertyMap">
-			<map>
-				<entry key="hibernate.hbm2ddl.auto" value="create-drop" />
-			</map>
-		</property>
-	</bean>
-
-	<context:annotation-config />
-
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
-		p:entityManagerFactory-ref="entityManagerFactory" />
-
-	<tx:annotation-driven />
 	
 </beans>

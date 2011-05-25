@@ -13,7 +13,6 @@ import de.planetes.catalogue.IRightAscension
 import de.planetes.catalogue.ISkyObjectType
 import de.planetes.catalogue.ri.CatalogueFactory
 import de.planetes.catalogue.ri.MessierObject
-import de.planetes.catalogue.ri.service.repository.SkyObjectRepository
 
 /**
  * @author kamann
@@ -35,19 +34,19 @@ class SkyObjectServiceTest {
 		}
 	}
 
-	@Test
-	final void "test if the service can returns all messier objects"(){
-		SkyObjectRepository repository = [findAllMessierObjects: {messierObjects}] as SkyObjectRepository
-		SkyObjectService service = new SkyObjectService(skyObjectRepository: repository)
-
-		Assert.assertEquals 10, service.findAllMessierObjects().size()
-	}
-
-	@Test
-	final void "test if the service returns an empty list if no messier objects was found"(){
-		SkyObjectRepository repository = [findAllMessierObjects: {[]}] as SkyObjectRepository
-		SkyObjectService service = new SkyObjectService(skyObjectRepository: repository)
-
-		Assert.assertEquals 0, service.findAllMessierObjects().size()
-	}
+//	@Test
+//	final void "test if the service can returns all messier objects"(){
+//		SkyObjectRepository repository = [findAllMessierObjects: {messierObjects}] as SkyObjectRepository
+//		SkyObjectService service = new SkyObjectService(skyObjectRepository: repository)
+//
+//		Assert.assertEquals 10, service.findAllMessierObjects().size()
+//	}
+//
+//	@Test
+//	final void "test if the service returns an empty list if no messier objects was found"(){
+//		SkyObjectRepository repository = [findAllMessierObjects: {[]}] as SkyObjectRepository
+//		SkyObjectService service = new SkyObjectService(skyObjectRepository: repository)
+//
+//		Assert.assertEquals 0, service.findAllMessierObjects().size()
+//	}
 }

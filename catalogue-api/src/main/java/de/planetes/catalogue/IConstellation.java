@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
  * @author Thorsten Kamann
  */
 
-public interface IConstellation {
+public interface IConstellation extends IdentifiedCatalogueObject {
 
 	/**
 	 * 

@@ -23,7 +23,7 @@ import de.planetes.catalogue.ri.exception.CatalogueValidationException;
  * 
  */
 @SuppressWarnings("restriction")
-public abstract class AbstractValidatedCatalogue {
+public abstract class AbstractValidatedCatalogue extends AbstractIdentifiedCatalogObject {
 
 	@Inject
 	private Validator validator;

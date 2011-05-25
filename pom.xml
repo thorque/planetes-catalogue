@@ -25,7 +25,30 @@
 	<modules>
 		<module>catalogue-api</module>
 		<module>catalogue-ri</module>
+		<module>catalogue-importer</module>
+		<module>catalogue-db</module>
 	</modules>
+	
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>1.7.6</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.0.5.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -146,7 +169,7 @@
 			</build>
 			<distributionManagement>
 				<repository>
-					<id>agiba.releases</id>
+					<id>agiba.rc</id>
 					<url>http://server001.agilebackoffice.org:8080/nexus/content/repositories/rc-builds/</url>
 				</repository>
 			</distributionManagement>
