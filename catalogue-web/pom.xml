@@ -14,9 +14,9 @@
 		<wicket.version>1.5-rc2</wicket.version>
 		<jetty.version>7.3.0.v20110203</jetty.version>
 	</properties>
-	
+
 	<dependencies>
-		
+
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket</artifactId>
@@ -58,6 +58,11 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.14</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.16</version>
 		</dependency>
 
 		<!-- JETTY DEPENDENCIES FOR TESTING -->

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import de.planetes.catalogue.IConstellation;
 import de.planetes.catalogue.IMessierObject;
 import de.planetes.catalogue.db.repository.IConstellationRepository;
+import de.planetes.catalogue.service.IConstellationService;
 import de.planetes.catalogue.service.ISkyObjectService;
 
 /**
@@ -19,18 +20,10 @@ import de.planetes.catalogue.service.ISkyObjectService;
  *
  */
 @Service
-public class SkyObjectService implements ISkyObjectService {
+public class ConstellationService implements IConstellationService {
 
 	@Inject
 	private IConstellationRepository constellationRepository;
-
-	/* (non-Javadoc)
-	 * @see de.planetes.catalogue.service.ISkyObjectService#findAllMessierObjects()
-	 */
-	public List<IMessierObject> findAllMessierObjects() {
-		
-		return null;
-	}
 
 	/* (non-Javadoc)
 	 * @see de.planetes.catalogue.service.ISkyObjectService#findAllConstellations()

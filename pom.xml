@@ -27,6 +27,7 @@
 		<module>catalogue-ri</module>
 		<module>catalogue-importer</module>
 		<module>catalogue-db</module>
+		<module>catalogue-web</module>
 	</modules>
 	
 	<dependencies>
