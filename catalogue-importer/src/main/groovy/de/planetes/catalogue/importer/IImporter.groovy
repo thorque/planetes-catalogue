@@ -9,5 +9,5 @@ package de.planetes.catalogue.importer
  */
 interface IImporter {
 
-	 void importIntoDB();
+	 int importIntoDB();
 }

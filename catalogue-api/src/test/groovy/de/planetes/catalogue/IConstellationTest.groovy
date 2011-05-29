@@ -27,8 +27,7 @@ class IConstellationTest {
 	public void setUp() throws Exception {
 		name = "name"
 		code = "abc"
-		skyObjects = []
-		constellation = [getName: {name}, getCode: {code}, getSkyObjects: {skyObjects}] as IConstellation
+		constellation = [getName: {name}, getCode: {code}] as IConstellation
 	}
 
 
@@ -73,19 +72,6 @@ class IConstellationTest {
 		Assert.assertEquals 1, violations.size()
 		violations.each {
 			Assert.assertEquals "{javax.validation.constraints.Size.message}", it.messageTemplate
-		}
-	}
-
-
-	@Test
-	final void "test if the validator works fine with skyObjects set to null"(){
-		skyObjects = null
-
-		System.out.println(validator);
-		def violations = validator.validate(constellation)
-		Assert.assertEquals 1, violations.size()
-		violations.each {
-			Assert.assertEquals "{javax.validation.constraints.NotNull.message}", it.messageTemplate
 		}
 	}
 }

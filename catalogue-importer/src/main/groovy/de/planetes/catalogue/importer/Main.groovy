@@ -16,7 +16,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/META-INF/spring/*-context.xml");
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/META-INF/spring/importer-context.xml");
 
 		applicationContext.getBean("constellationImporter").importIntoDB()
 	}

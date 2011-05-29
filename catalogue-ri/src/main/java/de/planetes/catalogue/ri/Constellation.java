@@ -45,12 +45,18 @@ public class Constellation extends AbstractValidatedCatalogue implements
 	 * @param code
 	 * @param skyObjects
 	 */
+	@Deprecated
 	protected Constellation(String name, String description, String code,
 			List<IFixedSkyObject> skyObjects) {
 		this.name = name;
 		this.description = description;
 		this.code = code;
 		this.skyObjects = skyObjects;
+	}
+	
+	protected Constellation(String name, String code){
+		this.name = name;
+		this.code = code;
 	}
 
 	/* (non-Javadoc)

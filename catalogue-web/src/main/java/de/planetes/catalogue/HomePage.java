@@ -21,11 +21,7 @@ public class HomePage extends WebPage {
 
 	@SuppressWarnings({ "rawtypes", "serial", "unchecked" })
 	public HomePage(final PageParameters parameters) {
-		add(new Label("version", getApplication().getFrameworkSettings()
-				.getVersion()));
-		// add(new Label("myLbl",
-		// "Const: "+constellationService.findAllConstellations().size()));
-		// TODO Add your page's components here
+		
 
 		List<IConstellation> constellations = constellationService
 				.findAllConstellations();
@@ -36,7 +32,6 @@ public class HomePage extends WebPage {
 				final IConstellation constellation = (IConstellation) item
 						.getModelObject();
 				item.add(new Label("name", constellation.getName()));
-				item.add(new Label("description", constellation.getDescription()));
 				item.add(new Label("code", constellation.getCode()));
 			}
 		};

@@ -1,7 +1,5 @@
 package de.planetes.catalogue;
 
-import java.util.List;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -19,13 +17,7 @@ public interface IConstellation extends IdentifiedCatalogueObject {
 	 * @return The name of the constellation
 	 */
 	@NotNull
-	public String getName();
-
-	/**
-	 * 
-	 * @return The (optional) description of this constellation
-	 */
-	public String getDescription();
+	String getName();
 
 	/**
 	 * 
@@ -33,13 +25,5 @@ public interface IConstellation extends IdentifiedCatalogueObject {
 	 */
 	@NotNull
 	@Size(min = 3, max = 3)
-	public String getCode();
-
-	/**
-	 * 
-	 * @return A {@link List} of {@link IFixedSkyObject} belonging to this
-	 *         constellation
-	 */
-	@NotNull
-	public List<IFixedSkyObject> getSkyObjects();
+	String getCode();
 }

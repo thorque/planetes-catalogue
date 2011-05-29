@@ -8,6 +8,7 @@ import javax.inject.Named;
 import javax.transaction.Transaction;
 
 import org.aspectj.apache.bcel.Repository;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.planetes.catalogue.db.repository.IConstellationRepository
@@ -17,22 +18,22 @@ import de.planetes.catalogue.ri.CatalogueFactory;
  * @author kamann
  *
  */
-@Named
+@Component
 @Transactional
 class ConstellationImporter implements IImporter{
 	
-	final List constellations = [
-		CatalogueFactory.createConstellation("Andromeda", "Andromeda", "AND", []),
-		CatalogueFactory.createConstellation("Antilla", "Pump", "ANT", [])
-	]
-	
 	@Inject
 	private IConstellationRepository repository
-	
-	public void importIntoDB(){
-		constellations.each{constellation ->
-				repository.persistOrMergeConstellation constellation
+
+	public int importIntoDB(){
+		File dataFile = new File("src/main/resources/importdata/constellations.csv");
+		int recordCounter = 0
+		dataFile.eachLine { String line ->
+			List items = line.split(";")
+			repository.persistOrMergeConstellation(CatalogueFactory.createConstellation(items.get(0), items.get(1)))
+			recordCounter++
 		}
+		return recordCounter;
 	} 
 
 }

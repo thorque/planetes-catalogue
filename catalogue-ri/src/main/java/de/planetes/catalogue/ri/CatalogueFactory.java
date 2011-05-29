@@ -181,6 +181,26 @@ public class CatalogueFactory {
 		}
 		return null;
 	}
+	
+	/**
+	 * @param name
+	 * @param code
+	 * @return
+	 * @throws CatalogueValidationException
+	 */
+	public static IConstellation createConstellation(String name,
+			String code)
+			throws CatalogueValidationException {
+		try {
+			return new Constellation(name, code);
+		} catch (BeanCreationException e) {
+			Throwable t = e.getRootCause();
+			if (t != null && t instanceof CatalogueValidationException) {
+				throw (CatalogueValidationException) e.getRootCause();
+			}
+		}
+		return null;
+	}
 
 	/**
 	 * @param name
@@ -190,6 +210,7 @@ public class CatalogueFactory {
 	 * @return A new and validated instance of {@link IConstellation}
 	 * @throws CatalogueValidationException
 	 */
+	@Deprecated
 	public static IConstellation createConstellation(String name,
 			String description, String code, List<IFixedSkyObject> skyObjects)
 			throws CatalogueValidationException {
@@ -216,6 +237,7 @@ public class CatalogueFactory {
 	 * @return A new and validated instance of {@link IConstellation}
 	 * @throws CatalogueValidationException
 	 */
+	@Deprecated
 	public static IConstellation createConstellation(String name,
 			String description, String code, IFixedSkyObject... skyObjects) {
 		return createConstellation(name, description, code,

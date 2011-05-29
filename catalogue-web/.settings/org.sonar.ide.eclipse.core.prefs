@@ -1,7 +1,7 @@
-#Sun May 29 12:45:25 CEST 2011
+#Sat May 28 21:54:19 CEST 2011
 analyseLocally=true
 eclipse.preferences.version=1
-projectArtifactId=catalogue-api
+projectArtifactId=catalogue-web
 projectBranch=HEAD
 projectGroupId=de.planetes.catalogue
 serverUrl=http\://server001.agilebackoffice.org/sonar

@@ -1,0 +1,24 @@
+
+
+body {
+	background-color: black;
+	color: white;
+}
+
+table.dataview {
+	width:100%;
+	border: 1px solid white;
+	border-collapse: collapse;
+}
+
+table.dataview THEAD TH {
+	text-align: left;
+	border: 1px solid white;
+	border-collapse: collapse;
+	font-size: 110%;
+}
+
+table.dataview tbody td {
+	border: 1px solid white;
+	border-collapse: collapse;
+}

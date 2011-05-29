@@ -25,26 +25,28 @@ public class ConstellationDB {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long identifier;
 	private String name;
-	private String description;
 	private String code;
-	@Transient
-	private List<IFixedSkyObject> skyObjects;
 
 	public static ConstellationDB transformTo(IConstellation constellation) {
 		ConstellationDB cdb = new ConstellationDB();
 
 		cdb.code = constellation.getCode();
-		cdb.description = constellation.getDescription();
 		cdb.identifier = constellation.getIdentifier();
 		cdb.name = constellation.getName();
-		cdb.skyObjects = constellation.getSkyObjects();
 
 		return cdb;
 	}
 
 	public IConstellation transformFrom() {
 		IConstellation constellation = CatalogueFactory.createConstellation(
-				name, description, code, skyObjects);
+				name, code);
+		constellation.setIdentifier(identifier);
+		return constellation;
+	}
+	
+	public IConstellation transfoqrmFrom() {
+		IConstellation constellation = CatalogueFactory.createConstellation(
+				name, code);
 		constellation.setIdentifier(identifier);
 		return constellation;
 	}
