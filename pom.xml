@@ -170,7 +170,7 @@
 			</build>
 			<distributionManagement>
 				<repository>
-					<id>agiba.rc</id>
+					<id>agiba.rc-builds</id>
 					<url>http://server001.agilebackoffice.org:8080/nexus/content/repositories/rc-builds/</url>
 				</repository>
 			</distributionManagement>
